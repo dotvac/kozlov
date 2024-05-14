@@ -1,63 +1,20 @@
-﻿using System;
-
-// Base class for musical instruments
-class Instrument
-{
-    public string Name { get; set; }
-    public string Type { get; set; }
-
-    public void Play()
-    {
-        Console.WriteLine($"Playing {Name}");
-    }
-}
-
-// Derived class for string instruments
-class StringInstrument : Instrument
-{
-    public int NumStrings { get; set; }
-
-    public StringInstrument(string name, int numStrings)
-    {
-        Name = name;
-        NumStrings = numStrings;
-        Type = "String";
-    }
-
-    public void Pluck()
-    {
-        Console.WriteLine($"Plucking the {Name}");
-    }
-}
-
-// Derived class for wind instruments
-class WindInstrument : Instrument
-{
-    public string Material { get; set; }
-
-    public WindInstrument(string name, string material)
-    {
-        Name = name;
-        Material = material;
-        Type = "Wind";
-    }
-
-    public void Blow()
-    {
-        Console.WriteLine($"Blowing into the {Name}");
-    }
-}
+using System;
+using ConsoleApp31;
 
 class Program
 {
     static void Main()
     {
-        StringInstrument guitar = new StringInstrument("Guitar", 6);
-        guitar.Play();
-        guitar.Pluck();
+        Guitar guitar = new Guitar("Classical Guitar", "Wood", 2018);
+        Piano piano = new Piano("Grand Piano", "Wood", 2016);
 
-        WindInstrument flute = new WindInstrument("Flute", "Wood");
-        flute.Play();
-        flute.Blow();
+        guitar.DisplayInfo();
+        guitar.Play();
+        guitar.Tune();
+
+        Console.WriteLine();
+
+        piano.DisplayInfo();
+        piano.Play();
+        piano.Tune();
     }
-}
